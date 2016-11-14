@@ -1,0 +1,21 @@
+<h1><%= current_user.full_name %> Cars</h1>
+<hr />
+
+<% if @cars.any? %>
+<div class="row">
+  <% @cars.each do |car| %>
+  <div class='card col s6 purple'>
+    <div class='card-content'>
+      <h3 class='center'><%= car.info %> </h3>
+    </div>
+    <div class='card-action'>
+      <%= link_to 'Show', car_path(car) %>
+    </div>
+  </div>
+  <% end %>
+</div>
+  <% else %>
+    <h4> No Cars, please create one </h4>
+  <% end %>
+
+<%= link_to "New Car", new_car_path, class:'btn blue' %>

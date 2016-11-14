@@ -1,0 +1,35 @@
+<div class="row">
+    <%= form_for @car do |f| %>
+      <div class="row">
+        <div class="input-field col s6">
+          <%= f.text_field :make %>
+          <%= f.label :make %>
+        </div>
+        <div class="input-field col s6">
+          <%= f.text_field :model %>
+          <%= f.label :model %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <%= f.date_field :year %>
+          <%= f.label :year, class: 'active'%>
+        </div>
+        <div class="input-field col s6">
+          <%= f.check_box :runs %>
+          <%= f.label :runs %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <%= f.select :engine, ['v4', 'v6', 'v8'] %>
+          <%= f.label :engine %>
+        </div>
+        <div class="input-field col s6">
+          <%= f.number_field :number_of_doors %>
+          <%= f.label :number_of_doors %>
+        </div>
+      </div>
+      <%= f.submit nil, class: 'btn blue' %>
+   <% end %>
+</div>

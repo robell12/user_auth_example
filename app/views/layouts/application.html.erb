@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UserAuthexample</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">User Cars</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+          <%= link_to 'About', static_pages_about_path %>
+        </li>
+        <li>
+          <%= link_to 'Contact', static_pages_contact_path %>
+        </li>
+        <% if user_signed_in? %>
+        <li>
+          <%= link_to 'New Car', new_car_path %>
+        </li>
+        <li>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+          </li>
+          <% else %>
+          <li>
+            <%= link_to 'Login', new_user_session_path %>
+            </li>
+          <% end %>
+      </ul>
+    </div>
+  </nav>
+    <% flash.each do |type, message| %>
+      <div class='flash <%= type %>'>
+        <%= message %>
+      </div>
+    <% end %>
+    <div class='container'>
+    <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<h1> <%= @car.info %> </h1>
+<hr />
+
+<ul>
+  <li>Year: <%= @car.year %> </li>
+  <li>Engine: <%= @car.engine %> </li>
+  <li>Number Of Doors: <%= @car.number_of_doors %> </li>
+  <li>Runs: <%= @car.runs ? 'Yes' : 'No' %> </li>
+</ul>
+
+<div>
+  <%= link_to 'Edit', edit_car_path(@car) %> |
+  <%= link_to 'Delete', car_path(@car), method: :delete, data: {confirm: 'Really Delete?'} %>
+</div>
+
+<%= link_to 'All Cars', cars_path %><h1><%= car.info %> </h1>
